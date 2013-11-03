@@ -90,7 +90,9 @@
         }
 
         if ([_setter length] == 0) {
-            _setter = [NSString stringWithFormat:@"set%@:", [_name capitalizedString]];
+            NSString *capitalized = [_name stringByReplacingCharactersInRange:NSMakeRange(0,1)
+                                                                     withString:[[_name substringToIndex:1] capitalizedString]];
+            _setter = [NSString stringWithFormat:@"set%@:", capitalized];
         }
     }
     return self;

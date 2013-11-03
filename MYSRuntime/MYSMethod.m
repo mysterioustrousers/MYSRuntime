@@ -43,7 +43,7 @@
     // generate type character array
     NSInteger numberOfArguments             = [signature numberOfArguments];
     NSInteger numberOfChars                 = numberOfArguments + 3;
-    char types[numberOfChars];
+    char *types = malloc(sizeof(char) * numberOfChars);
     types[0] = [signature methodReturnType][0];
     types[1] = '@';
     types[2] = ':';
