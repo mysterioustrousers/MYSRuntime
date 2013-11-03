@@ -1,13 +1,15 @@
 //
-//  MYSRuntime.m
+//  MYSTestClass.m
 //  MYSRuntime
 //
 //  Created by Adam Kirk on 11/2/13.
 //  Copyright (c) 2013 Mysterious Trousers. All rights reserved.
 //
 
-#import "MYSRuntime.h"
+#import "MYSTestClass.h"
 
-@implementation MYSRuntime
+@implementation MYSTestClass
+
+@dynamic floatTest;
 
 @end

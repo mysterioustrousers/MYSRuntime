@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MYSTypes.h"
+#import "MYSClass.h"
+#import "MYSProperty.h"
+#import "MYSMethod.h"
 
-@interface MYSRuntime : NSObject
-
-@end

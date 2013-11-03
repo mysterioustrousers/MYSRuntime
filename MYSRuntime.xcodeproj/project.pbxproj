@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C21DC78F1825CD4A0051F8DB /* MYSTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C21DC78E1825CD4A0051F8DB /* MYSTestClass.m */; };
 		C230F154182557B200463B0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C230F153182557B200463B0A /* Foundation.framework */; };
 		C230F159182557B200463B0A /* MYSRuntime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C230F158182557B200463B0A /* MYSRuntime.h */; };
-		C230F15B182557B200463B0A /* MYSRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = C230F15A182557B200463B0A /* MYSRuntime.m */; };
 		C230F162182557B200463B0A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C230F161182557B200463B0A /* XCTest.framework */; };
 		C230F163182557B300463B0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C230F153182557B200463B0A /* Foundation.framework */; };
 		C230F165182557B300463B0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C230F164182557B300463B0A /* UIKit.framework */; };
 		C230F168182557B300463B0A /* libMYSRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C230F150182557B200463B0A /* libMYSRuntime.a */; };
 		C230F16E182557B300463B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C230F16C182557B300463B0A /* InfoPlist.strings */; };
-		C230F170182557B300463B0A /* MYSRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C230F16F182557B300463B0A /* MYSRuntimeTests.m */; };
+		C230F17D182557C000463B0A /* MYSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C230F17A182557C000463B0A /* MYSClass.m */; };
+		C230F17E182557C000463B0A /* MYSProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C230F17C182557C000463B0A /* MYSProperty.m */; };
+		C230F18118255ACC00463B0A /* MYSMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C230F18018255ACC00463B0A /* MYSMethod.m */; };
+		C25DF810182592930020D4C5 /* MYSPropertyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DF80F182592930020D4C5 /* MYSPropertyTests.m */; };
+		C25DF8141825C9D20020D4C5 /* CTBlockDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DF8131825C9D20020D4C5 /* CTBlockDescription.m */; };
+		C25DF8161825CCDE0020D4C5 /* MYSClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DF8151825CCDE0020D4C5 /* MYSClassTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,17 +47,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C21DC78D1825CD4A0051F8DB /* MYSTestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSTestClass.h; sourceTree = "<group>"; };
+		C21DC78E1825CD4A0051F8DB /* MYSTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSTestClass.m; sourceTree = "<group>"; };
 		C230F150182557B200463B0A /* libMYSRuntime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMYSRuntime.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C230F153182557B200463B0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C230F157182557B200463B0A /* MYSRuntime-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MYSRuntime-Prefix.pch"; sourceTree = "<group>"; };
 		C230F158182557B200463B0A /* MYSRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYSRuntime.h; sourceTree = "<group>"; };
-		C230F15A182557B200463B0A /* MYSRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYSRuntime.m; sourceTree = "<group>"; };
 		C230F160182557B200463B0A /* MYSRuntimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYSRuntimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C230F161182557B200463B0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C230F164182557B300463B0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C230F16B182557B300463B0A /* MYSRuntimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MYSRuntimeTests-Info.plist"; sourceTree = "<group>"; };
 		C230F16D182557B300463B0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C230F16F182557B300463B0A /* MYSRuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYSRuntimeTests.m; sourceTree = "<group>"; };
+		C230F179182557C000463B0A /* MYSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSClass.h; sourceTree = "<group>"; };
+		C230F17A182557C000463B0A /* MYSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSClass.m; sourceTree = "<group>"; };
+		C230F17B182557C000463B0A /* MYSProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSProperty.h; sourceTree = "<group>"; };
+		C230F17C182557C000463B0A /* MYSProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSProperty.m; sourceTree = "<group>"; };
+		C230F17F18255ACC00463B0A /* MYSMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSMethod.h; sourceTree = "<group>"; };
+		C230F18018255ACC00463B0A /* MYSMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSMethod.m; sourceTree = "<group>"; };
+		C25DF80B18258AB10020D4C5 /* MYSTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSTypes.h; sourceTree = "<group>"; };
+		C25DF80F182592930020D4C5 /* MYSPropertyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSPropertyTests.m; sourceTree = "<group>"; };
+		C25DF8121825C9D20020D4C5 /* CTBlockDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBlockDescription.h; sourceTree = "<group>"; };
+		C25DF8131825C9D20020D4C5 /* CTBlockDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBlockDescription.m; sourceTree = "<group>"; };
+		C25DF8151825CCDE0020D4C5 /* MYSClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSClassTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C21DC7901825CD510051F8DB /* Test Class */ = {
+			isa = PBXGroup;
+			children = (
+				C21DC78D1825CD4A0051F8DB /* MYSTestClass.h */,
+				C21DC78E1825CD4A0051F8DB /* MYSTestClass.m */,
+			);
+			name = "Test Class";
+			sourceTree = "<group>";
+		};
 		C230F147182557B200463B0A = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +136,14 @@
 			isa = PBXGroup;
 			children = (
 				C230F158182557B200463B0A /* MYSRuntime.h */,
-				C230F15A182557B200463B0A /* MYSRuntime.m */,
+				C230F179182557C000463B0A /* MYSClass.h */,
+				C230F17A182557C000463B0A /* MYSClass.m */,
+				C230F17B182557C000463B0A /* MYSProperty.h */,
+				C230F17C182557C000463B0A /* MYSProperty.m */,
+				C230F17F18255ACC00463B0A /* MYSMethod.h */,
+				C230F18018255ACC00463B0A /* MYSMethod.m */,
+				C25DF80B18258AB10020D4C5 /* MYSTypes.h */,
+				C25DF8111825C9BB0020D4C5 /* Vendor */,
 				C230F156182557B200463B0A /* Supporting Files */,
 			);
 			path = MYSRuntime;
@@ -128,7 +160,9 @@
 		C230F169182557B300463B0A /* MYSRuntimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				C230F16F182557B300463B0A /* MYSRuntimeTests.m */,
+				C25DF8151825CCDE0020D4C5 /* MYSClassTests.m */,
+				C25DF80F182592930020D4C5 /* MYSPropertyTests.m */,
+				C21DC7901825CD510051F8DB /* Test Class */,
 				C230F16A182557B300463B0A /* Supporting Files */,
 			);
 			path = MYSRuntimeTests;
@@ -141,6 +175,15 @@
 				C230F16C182557B300463B0A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C25DF8111825C9BB0020D4C5 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C25DF8121825C9D20020D4C5 /* CTBlockDescription.h */,
+				C25DF8131825C9D20020D4C5 /* CTBlockDescription.m */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C230F15B182557B200463B0A /* MYSRuntime.m in Sources */,
+				C230F18118255ACC00463B0A /* MYSMethod.m in Sources */,
+				C25DF8141825C9D20020D4C5 /* CTBlockDescription.m in Sources */,
+				C230F17E182557C000463B0A /* MYSProperty.m in Sources */,
+				C230F17D182557C000463B0A /* MYSClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C230F170182557B300463B0A /* MYSRuntimeTests.m in Sources */,
+				C25DF8161825CCDE0020D4C5 /* MYSClassTests.m in Sources */,
+				C25DF810182592930020D4C5 /* MYSPropertyTests.m in Sources */,
+				C21DC78F1825CD4A0051F8DB /* MYSTestClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +457,7 @@
 				C230F175182557B300463B0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C230F176182557B300463B0A /* Build configuration list for PBXNativeTarget "MYSRuntimeTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +466,7 @@
 				C230F178182557B300463B0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
