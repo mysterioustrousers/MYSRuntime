@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MYSRuntime"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Obj-C Library that makes runtime self-inspection and class modification dead easy."
   s.description  = <<-DESC
                    Using objective-c objects to wrap classes methods and properties, it is much easier and
