@@ -28,13 +28,14 @@ Easily get information about properties:
 
 Easily create methods from blocks and add them as methods to classes.
 
-    MYSClass *testClass   = [[MYSClass alloc] initWithClass:[MYSTestClass class]];
     MYSMethod *testMethod = [[MYSMethod alloc] initWithName:@"setName:age:"
                                         implementationBlock:^(id self, NSString *name, NSNumber *age)
     {
         [(MYSTestClass *)self setObjectTest:name];
         [(MYSTestClass *)self setLongTest:[age longValue]];
     }];
+    
+    MYSClass *testClass   = [[MYSClass alloc] initWithClass:[MYSTestClass class]];
     [testClass addMethod:testMethod];
 
 ### Author
