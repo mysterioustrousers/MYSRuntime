@@ -31,8 +31,8 @@ Easily create methods from blocks and add them as methods to classes.
     MYSMethod *testMethod = [[MYSMethod alloc] initWithName:@"setName:age:"
                                         implementationBlock:^(id self, NSString *name, NSNumber *age)
     {
-        [(MYSTestClass *)self setObjectTest:name];
-        [(MYSTestClass *)self setLongTest:[age longValue]];
+        [self setObjectTest:name];
+        [self setLongTest:[age longValue]];
     }];
     
     MYSClass *testClass   = [[MYSClass alloc] initWithClass:[MYSTestClass class]];
