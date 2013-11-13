@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mysterious Trousers. All rights reserved.
 //
 
-#import "MYSProperty.h"
+#import "MYSRuntime.h"
 
 
 @implementation MYSProperty
@@ -33,9 +33,7 @@
 
             // type
             if ([flag hasPrefix:@"T"]) {
-                NSString *typeFlag = [flag substringWithRange:NSMakeRange(1, 1)];
-                unichar c = [typeFlag characterAtIndex:0];
-                _type = (MYSType)c;
+                _type = [[MYSType alloc] initWithEncodingString:[flag substringFromIndex:1]];
             }
 
             // readonly

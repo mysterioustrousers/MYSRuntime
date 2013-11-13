@@ -41,13 +41,26 @@
 {
     NSMutableArray *properties  = [NSMutableArray new];
     unsigned int count          = 0;
-    objc_property_t *props = class_copyPropertyList(self.klass, &count);
+    objc_property_t *props      = class_copyPropertyList(self.klass, &count);
     for (int i = 0; i < count; ++i) {
         objc_property_t p       = props[i];
         MYSProperty *property   = [[MYSProperty alloc] initWithObjCProperty:p];
         [properties addObject:property];
     }
     return properties;
+}
+
+- (NSArray *)ivars
+{
+    NSMutableArray *ivars   = [NSMutableArray new];
+    unsigned int count      = 0;
+    Ivar *ivs               = class_copyIvarList(self.klass, &count);
+    for (int i = 0; i < count; ++i) {
+        Ivar iv         = ivs[i];
+        MYSIvar *ivar   = [[MYSIvar alloc] initWithObjCIvar:iv];
+        [ivars addObject:ivar];
+    }
+    return ivars;
 }
 
 

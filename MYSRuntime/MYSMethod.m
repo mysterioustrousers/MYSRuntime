@@ -41,8 +41,8 @@
     NSAssert(signature, @"The block you pass in must be capable of extracting a signature");
 
     // generate type character array
-    NSInteger numberOfArguments             = [signature numberOfArguments];
-    NSInteger numberOfChars                 = numberOfArguments + 3;
+    NSInteger numberOfArguments = [signature numberOfArguments];
+    NSInteger numberOfChars     = numberOfArguments + 3;
     char *types = malloc(sizeof(char) * numberOfChars);
     types[0] = [signature methodReturnType][0];
     types[1] = '@';

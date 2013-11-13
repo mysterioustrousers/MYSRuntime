@@ -14,12 +14,12 @@
 /**
  *  The name of the method used when creating the method.
  */
-@property (nonatomic, strong, readonly) NSString   *name;
+@property (nonatomic, strong, readonly) NSString *name;
 
 /**
  *  The implementation of the method. This will be created from the block passed in on init if that initializer is used.
  */
-@property (nonatomic, assign, readonly) IMP        implemenation;
+@property (nonatomic, assign, readonly) IMP implemenation;
 
 /**
  *  The encoded types of the method. The format is [<return type>, '@', ':', <first argument type>, ...]

@@ -8,7 +8,12 @@
 
 #import "MYSTestClass.h"
 
-@implementation MYSTestClass
+@implementation MYSTestClass {
+    id          _privateIvar;
+    NSString    *_privateStringIvar;
+    CGRect      _privateRectIvar;
+    CGPoint     _privatePointIvar;
+}
 
 @dynamic floatTest;
 

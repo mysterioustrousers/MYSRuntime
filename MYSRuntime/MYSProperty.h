@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Mysterious Trousers. All rights reserved.
 //
 
-#import "MYSTypes.h"
 #import <objc/runtime.h>
+
+
+@class MYSType;
 
 
 typedef NS_ENUM(NSUInteger, MYSPropertyStorageType) {
@@ -21,7 +23,7 @@ typedef NS_ENUM(NSUInteger, MYSPropertyStorageType) {
 @interface MYSProperty : NSObject
 
 @property (nonatomic, copy,   readonly) NSString               *name;
-@property (nonatomic, assign, readonly) MYSType                type;
+@property (nonatomic, strong, readonly) MYSType                *type;
 @property (nonatomic, assign, readonly) BOOL                   isReadOnly;
 @property (nonatomic, assign, readonly) MYSPropertyStorageType storageType;
 @property (nonatomic, assign, readonly) BOOL                   isNonAtomic;

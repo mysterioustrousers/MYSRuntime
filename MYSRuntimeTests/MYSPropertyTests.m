@@ -32,9 +32,9 @@
 {
     NSArray *properties = [self.klass properties];
     for (MYSProperty *property in properties) {
-        switch (property.type) {
+        switch (property.type.type) {
 
-            case MYSTypeChar:
+            case MYSTypeTypeChar:
                 if (BIT64) {
                     XCTAssertEqualObjects(@"charTest", property.name);
                 }
@@ -45,11 +45,11 @@
                 }
                 break;
 
-            case MYSTypeBool:
+            case MYSTypeTypeBool:
                 XCTAssertEqualObjects(@"boolTest", property.name);
                 break;
 
-            case MYSTypeInt:
+            case MYSTypeTypeInt:
             {
                 if (BIT64) {
                     XCTAssertEqualObjects(@"intTest", property.name);
@@ -65,14 +65,14 @@
             }
                 break;
 
-            case MYSTypeLong:
+            case MYSTypeTypeLong:
             {
                 XCTAssertEqualObjects(@"longTest", property.name);
                 XCTAssertTrue(!property.isNonAtomic);
             }
                 break;
 
-            case MYSTypeLongLong:
+            case MYSTypeTypeLongLong:
                 if (BIT64) {
                     BOOL valid = ([property.name isEqualToString:@"longLongTest"] ||
                                   [property.name isEqualToString:@"longTest"]);
@@ -83,11 +83,11 @@
                 }
                 break;
 
-            case MYSTypeUnsignedChar:
+            case MYSTypeTypeUnsignedChar:
                 XCTAssertEqualObjects(@"unsignedCharTest", property.name);
                 break;
 
-            case MYSTypeUnsignedShort:
+            case MYSTypeTypeUnsignedShort:
                 if (YES) {
                     BOOL valid = ([property.name isEqualToString:@"unsignedCharTest"] ||
                                   [property.name isEqualToString:@"unsignedShortTest"]);
@@ -95,7 +95,7 @@
                 }
                 break;
 
-            case MYSTypeUnsignedInt:
+            case MYSTypeTypeUnsignedInt:
             {
                 if (BIT64) {
                     XCTAssertEqualObjects(@"unsignedIntTest", property.name);
@@ -109,11 +109,11 @@
             }
                 break;
 
-            case MYSTypeUnsignedLong:
+            case MYSTypeTypeUnsignedLong:
                 XCTAssertEqualObjects(@"unsignedLongTest", property.name);
                 break;
 
-            case MYSTypeUnsignedLongLong:
+            case MYSTypeTypeUnsignedLongLong:
                 if (BIT64) {
                     BOOL valid = ([property.name isEqualToString:@"unsignedLongLongTest"] ||
                                   [property.name isEqualToString:@"unsignedLongTest"]);
@@ -124,7 +124,7 @@
                 }
                 break;
 
-            case MYSTypeFloat:
+            case MYSTypeTypeFloat:
             {
                 XCTAssertEqualObjects(@"floatTest", property.name);
                 XCTAssertEqualObjects(@"setFloatTest:", property.setter);
@@ -132,34 +132,34 @@
             }
                 break;
 
-            case MYSTypeDouble:
+            case MYSTypeTypeDouble:
                 XCTAssertEqualObjects(@"doubleTest", property.name);
                 break;
 
-            case MYSTypeObject:
+            case MYSTypeTypeObject:
             {
                 XCTAssertEqualObjects(@"objectTest", property.name);
                 XCTAssertTrue(property.storageType == MYSPropertyStorageTypeStrong);
             }
                 break;
 
-            case MYSTypeEnum:
-                XCTAssertEqualObjects(@"enumTest", property.name);
+            case MYSTypeTypeStruct:
+                XCTAssertEqualObjects(@"structTest", property.name);
                 break;
 
-            case MYSTypeUnion:
+            case MYSTypeTypeUnion:
                 XCTAssertEqualObjects(@"unionTest", property.name);
                 break;
 
-            case MYSTypeCString:
+            case MYSTypeTypeCString:
                 XCTAssertEqualObjects(@"cStringTest", property.name);
                 break;
 
-            case MYSTypeClass:
+            case MYSTypeTypeClass:
                 XCTAssertEqualObjects(@"classTest", property.name);
                 break;
 
-            case MYSTypeSelector:
+            case MYSTypeTypeSelector:
                 XCTAssertEqualObjects(@"selectorTest", property.name);
                 break;
 

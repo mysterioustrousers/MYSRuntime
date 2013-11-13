@@ -22,6 +22,11 @@
 @property (nonatomic, strong, readonly) NSArray *properties;
 
 /**
+ *  An on-demand list of current ivars of the class. (array of MYSIvar objects).
+ */
+@property (nonatomic, strong, readonly) NSArray *ivars;
+
+/**
  *  Create an MYSClass object.
  *
  *  @param klass The `Class` opaque type you want to represent with this object.

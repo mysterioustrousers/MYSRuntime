@@ -7,39 +7,13 @@
 //
 
 
-typedef NS_ENUM(NSUInteger, MYSType) {
-    MYSTypeChar             = 'c',
-    MYSTypeBool             = 'B',
-    MYSTypeShort            = 's',
-    MYSTypeInt              = 'i',
-    MYSTypeLong             = 'l',
-    MYSTypeLongLong         = 'q',
-    MYSTypeUnsignedChar     = 'C',
-    MYSTypeUnsignedShort    = 'S',
-    MYSTypeUnsignedInt      = 'I',
-    MYSTypeUnsignedLong     = 'L',
-    MYSTypeUnsignedLongLong = 'Q',
-    MYSTypeFloat            = 'f',
-    MYSTypeDouble           = 'd',
-    MYSTypeObject           = '@',
-    MYSTypeEnum             = '{',
-    MYSTypeUnion            = '(',
-    MYSTypeArray            = '[',
-    MYSTypePointerToType    = '^',
-    MYSTypeVoid             = 'v',
-    MYSTypeCString          = '*',
-    MYSTypeClass            = '#',
-    MYSTypeSelector         = ':',
-    MYSTypeBitfield         = 'b',
-    MYSTypeUnkown           = '?'
-};
 
-typedef NS_ENUM(NSUInteger, MYSQualifier) {
-    MYSQualifierConst       = 'r',
-    MYSQualifierIn          = 'n',
-    MYSQualifierInOut       = 'N',
-    MYSQualifierOut         = 'o',
-    MYSQualifierByCopy      = 'O',
-    MYSQualifierByReference = 'R',
-    MYSQualifierOneWay      = 'V'
+typedef NS_ENUM(NSUInteger, MYSMethodArgumentQualifier) {
+    MYSMethodArgumentQualifierConst       = 'r',
+    MYSMethodArgumentQualifierIn          = 'n',
+    MYSMethodArgumentQualifierInOut       = 'N',
+    MYSMethodArgumentQualifierOut         = 'o',
+    MYSMethodArgumentQualifierByCopy      = 'O',
+    MYSMethodArgumentQualifierByReference = 'R',
+    MYSMethodArgumentQualifierOneWay      = 'V'
 };
