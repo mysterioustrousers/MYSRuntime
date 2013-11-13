@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Mysterious Trousers. All rights reserved.
 //
 
-#import "MYSTypes.h"
-
 
 @interface MYSMethod : NSObject
+
 
 /**
  *  The name of the method used when creating the method.

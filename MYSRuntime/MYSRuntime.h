@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MYSTypes.h"
 #import "MYSClass.h"
 #import "MYSProperty.h"
 #import "MYSIvar.h"

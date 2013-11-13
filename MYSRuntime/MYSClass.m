@@ -9,6 +9,7 @@
 #import "MYSClass.h"
 #import <objc/runtime.h>
 #import "MYSRuntime.h"
+#import "MYSPrivate.h"
 
 
 @implementation MYSClass
@@ -34,6 +35,13 @@
                            method.implemenation,
                            method.types);
 }
+
++ (NSString *)descriptionOf:(id)object
+{
+    NSMutableSet *visited = [NSMutableSet new];
+    return [[self descriptionOf:object visited:visited indent:0] copy];
+}
+
 
 #pragma mark (getters)
 
@@ -63,5 +71,34 @@
     return ivars;
 }
 
+
+
+
+#pragma mark - Private
+
++ (NSString *)descriptionOf:(id)object visited:(NSMutableSet *)visited indent:(NSUInteger)indent
+{
+    [visited addObject:object];
+
+    MYSClass *klass         = [[MYSClass alloc] initWithClass:[object class]];
+    NSMutableString *string = [NSMutableString new];
+
+    [string appendString:[self newLineWithIndent:indent]];
+    [string appendFormat:@"<%@ %p>", NSStringFromClass([object class]), (void *)object];
+
+    for (MYSIvar *ivar in klass.ivars) {
+//        if (ivar.type.type == MYSTypeTypeObject) {
+            [string appendString:[self newLineWithIndent:indent]];
+        [string appendFormat:@"%@ %@ : %p", ivar.type.typeName, ivar.name, (void *)ivar.offset];
+//        }
+    }
+
+    return string;
+}
+
++ (NSString *)newLineWithIndent:(NSUInteger)indent
+{
+    return [@"\n\n" stringByPaddingToLength:indent * 4 withString:@" " startingAtIndex:0];
+}
 
 @end

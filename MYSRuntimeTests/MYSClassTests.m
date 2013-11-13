@@ -62,4 +62,12 @@
 
 #pragma clang diagnostic pop
 
+
+- (void)testDescriptionOf
+{
+    MYSTestClass *test = [MYSTestClass new];
+    NSString *description = [MYSClass descriptionOf:test];
+    NSLog(@"%@", description);
+}
+
 @end

@@ -44,4 +44,11 @@
  */
 - (BOOL)addMethod:(MYSMethod *)method;
 
+
+/**
+ *  Pass in any object and an MYSClass will be created for the object and used to return a full description of
+ *  the object.
+ */
++ (NSString *)descriptionOf:(id)object;
+
 @end

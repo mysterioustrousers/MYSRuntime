@@ -70,7 +70,7 @@
 		C230F18018255ACC00463B0A /* MYSMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSMethod.m; sourceTree = "<group>"; };
 		C255E52A18333920000591C4 /* MYSIvarTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSIvarTests.m; sourceTree = "<group>"; };
 		C255E52C18333C8F000591C4 /* MYSTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSTypeTests.m; sourceTree = "<group>"; };
-		C25DF80B18258AB10020D4C5 /* MYSTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSTypes.h; sourceTree = "<group>"; };
+		C25DF80B18258AB10020D4C5 /* MYSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSPrivate.h; sourceTree = "<group>"; };
 		C25DF80F182592930020D4C5 /* MYSPropertyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSPropertyTests.m; sourceTree = "<group>"; };
 		C25DF8121825C9D20020D4C5 /* CTBlockDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBlockDescription.h; sourceTree = "<group>"; };
 		C25DF8131825C9D20020D4C5 /* CTBlockDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBlockDescription.m; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				C230F18018255ACC00463B0A /* MYSMethod.m */,
 				C26CCF36183320DA0010C535 /* MYSType.h */,
 				C26CCF37183320DA0010C535 /* MYSType.m */,
-				C25DF80B18258AB10020D4C5 /* MYSTypes.h */,
+				C25DF80B18258AB10020D4C5 /* MYSPrivate.h */,
 				C25DF8111825C9BB0020D4C5 /* Vendor */,
 				C230F156182557B200463B0A /* Supporting Files */,
 			);
