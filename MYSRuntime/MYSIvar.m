@@ -15,8 +15,10 @@
 {
     self = [super init];
     if (self) {
-        _name = [[NSString stringWithUTF8String:ivar_getName(ivar)] copy];
-        _type = [[MYSType alloc] initWithEncodingString:[NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)]];
+        _ivar   = ivar;
+        _name   = [[NSString stringWithUTF8String:ivar_getName(ivar)] copy];
+        _type   = [[MYSType alloc] initWithEncodingString:[NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)]];
+        _offset = ivar_getOffset(ivar);
     }
     return self;
 }

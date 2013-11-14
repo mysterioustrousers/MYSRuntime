@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-
+        _property                       = property;
         _propertyAttributesString       = [[NSString stringWithUTF8String:property_getAttributes(property)] copy];
         _name                           = [[NSString stringWithUTF8String:property_getName(property)] copy];
 
@@ -30,6 +30,11 @@
         NSArray *flags = [_propertyAttributesString componentsSeparatedByString:@","];
 
         for (NSString *flag in flags) {
+
+            // ivar
+            if ([flag hasPrefix:@"V"]) {
+                _ivarName = [flag substringFromIndex:1];
+            }
 
             // type
             if ([flag hasPrefix:@"T"]) {
