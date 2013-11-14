@@ -29,7 +29,7 @@
     MYSIvar *ivar = [self ivarWithName:@"_publicidIvar"];
     XCTAssertTrue(ivar.type.type == MYSTypeTypeObject);
     XCTAssertTrue(ivar.type.pointerCount == 0);
-    XCTAssertEqualObjects(@"object", ivar.type.typeName);
+    XCTAssertEqualObjects(@"id", ivar.type.typeName);
     XCTAssertEqualObjects(@"id", ivar.type.tag);
     XCTAssertTrue(ivar.type.arraySize == 0);
     XCTAssertTrue(ivar.type.members == nil);
@@ -40,7 +40,7 @@
     ivar = [self ivarWithName:@"_publicRectIvar"];
     XCTAssertTrue(ivar.type.type == MYSTypeTypeStruct);
     XCTAssertTrue(ivar.type.pointerCount == 0);
-    XCTAssertEqualObjects(@"struct", ivar.type.typeName);
+    XCTAssertEqualObjects(@"CGRect", ivar.type.typeName);
     XCTAssertEqualObjects(@"CGRect", ivar.type.tag);
     XCTAssertTrue(ivar.type.arraySize == 0);
     XCTAssertTrue([ivar.type.members count] == 2);
@@ -56,7 +56,7 @@
     ivar = [self ivarWithName:@"_publicUnionIvar"];
     XCTAssertTrue(ivar.type.type == MYSTypeTypeUnion);
     XCTAssertTrue(ivar.type.pointerCount == 0);
-    XCTAssertEqualObjects(@"union", ivar.type.typeName);
+    XCTAssertEqualObjects(@"?", ivar.type.typeName);
     XCTAssertEqualObjects(@"?", ivar.type.tag);
     XCTAssertTrue(ivar.type.arraySize == 0);
     XCTAssertTrue([ivar.type.members count] == 4);

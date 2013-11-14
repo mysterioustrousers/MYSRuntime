@@ -13,7 +13,7 @@ static char pointerEncodingCharacter = '^';
 
 
 @interface MYSTypePrimitiveMember ()
-- (id)initWithName:(NSString *)name type:(MYSType *)type;
+- (id)initWithName:(NSString *)name type:(MYSType *)type offset:(ptrdiff_t)offset;
 @end
 
 
@@ -77,13 +77,13 @@ static char pointerEncodingCharacter = '^';
             return @"double";
 
         case MYSTypeTypeObject:
-            return @"object";
+            return self.tag ?: @"object";
 
         case MYSTypeTypeStruct:
-            return @"struct";
+            return self.tag ?: @"struct";
 
         case MYSTypeTypeUnion:
-            return @"union";
+            return self.tag ?: @"union";
 
         case MYSTypeTypeArray:
             return @"array";
@@ -107,16 +107,98 @@ static char pointerEncodingCharacter = '^';
             return @"unknown";
             
         default:
-            return @"object";
+            return @"???";
     }
 }
 
 - (NSUInteger)size
 {
-    NSUInteger size;
-    const char *encoding = [self.encodingString UTF8String];
-    NSGetSizeAndAlignment(encoding, &size, NULL);
-    return size;
+    switch (_type) {
+
+        case MYSTypeTypeChar:
+            return sizeof(char);
+
+        case MYSTypeTypeBool:
+            return sizeof(BOOL);
+
+        case MYSTypeTypeShort:
+            return sizeof(short);
+
+        case MYSTypeTypeInt:
+            return sizeof(int);
+
+        case MYSTypeTypeLong:
+            return sizeof(long);
+
+        case MYSTypeTypeLongLong:
+            return sizeof(long long);
+
+        case MYSTypeTypeUnsignedChar:
+            return sizeof(unsigned char);
+
+        case MYSTypeTypeUnsignedShort:
+            return sizeof(unsigned short);
+
+        case MYSTypeTypeUnsignedInt:
+            return sizeof(unsigned int);
+
+        case MYSTypeTypeUnsignedLong:
+            return sizeof(unsigned long);
+
+        case MYSTypeTypeUnsignedLongLong:
+            return sizeof(unsigned long long);
+
+        case MYSTypeTypeFloat:
+            return sizeof(float);
+
+        case MYSTypeTypeDouble:
+            return sizeof(double);
+
+        case MYSTypeTypeObject:
+            return sizeof(void *);
+
+        case MYSTypeTypeStruct:
+        {
+            NSUInteger size = 0;
+            for (MYSTypePrimitiveMember *member in self.members) {
+                size += member.type.size;
+            }
+            return size;
+        }
+
+        case MYSTypeTypeUnion:
+        {
+            NSUInteger size = 0;
+            for (MYSTypePrimitiveMember *member in self.members) {
+                size += member.type.size;
+            }
+            return size;
+        }
+
+        case MYSTypeTypeArray:
+            return self.arraySize * self.arrayType.size;
+
+        case MYSTypeTypeVoid:
+            return sizeof(void);
+
+        case MYSTypeTypeCString:
+            return sizeof(char *);
+
+        case MYSTypeTypeClass:
+            return sizeof(Class);
+
+        case MYSTypeTypeSelector:
+            return sizeof(SEL);
+            
+        case MYSTypeTypeBitfield:
+            return sizeof(NSUInteger);
+            
+        case MYSTypeTypeUnkown:
+            return sizeof(void);
+            
+        default:
+            return sizeof(void *);
+    }
 }
 
 
@@ -172,6 +254,7 @@ static char pointerEncodingCharacter = '^';
     BOOL startToken         = YES;
     NSUInteger openBraces   = 0;
     BOOL openQuotes         = NO;
+    ptrdiff_t currentOffset = 0;
 
     for (NSUInteger i = 0; i < [internalStructureString length]; i++) {
         unichar c = [internalStructureString characterAtIndex:i];
@@ -240,19 +323,24 @@ static char pointerEncodingCharacter = '^';
                     NSString *wrappedType = [NSString stringWithFormat:@"%c%@%c", openCharacter, memberType, c];
                     MYSType *nestedType = [[MYSType alloc] initWithEncodingString:wrappedType];
                     MYSTypePrimitiveMember *member = [[MYSTypePrimitiveMember alloc] initWithName:pendingMemberName
-                                                                                             type:nestedType];
+                                                                                             type:nestedType
+                                                                                           offset:currentOffset];
+                    currentOffset += nestedType.size;
                     [members addObject:member];
                 }
                 else {
                     MYSType *nestedType = [[MYSType alloc] initWithEncodingString:[memberType copy]];
                     MYSTypePrimitiveMember *member = [[MYSTypePrimitiveMember alloc] initWithName:pendingMemberName
-                                                                                             type:nestedType];
+                                                                                             type:nestedType
+                                                                                           offset:currentOffset];
+                    currentOffset += nestedType.size;
                     [members addObject:member];
                 }
             }
             else {
                 MYSType *nestedType = [[MYSType alloc] initWithEncodingString:[memberType copy]];
                 _arrayType = nestedType;
+                currentOffset += nestedType.size;
             }
             [memberType setString:@""];
         }
@@ -268,13 +356,15 @@ static char pointerEncodingCharacter = '^';
 
 @implementation MYSTypePrimitiveMember
 
-- (id)initWithName:(NSString *)name type:(MYSType *)type
+- (id)initWithName:(NSString *)name type:(MYSType *)type offset:(ptrdiff_t)offset
 {
     self = [super init];
     if (self) {
-        _name = name;
-        _type = type;
+        _name   = name;
+        _type   = type;
+        _offset = offset;
     }
     return self;
 }
+
 @end

@@ -54,6 +54,11 @@ typedef NS_ENUM(NSUInteger, MYSTypeType) {
  */
 @property (nonatomic, strong, readonly) MYSType  *type;
 
+/**
+ *  The memory offest in bytes within the enclosing type.
+ */
+@property (nonatomic, assign, readonly) ptrdiff_t offset;
+
 @end
 
 

@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MYSTestClass.h"
 #import "MYSRuntime.h"
+#import <Cocoa/Cocoa.h>
 
 
 @interface MYSClassTests : XCTestCase
@@ -65,8 +66,9 @@
 
 - (void)testDescriptionOf
 {
-    MYSTestClass *test = [MYSTestClass new];
-    NSString *description = [MYSClass descriptionOf:test];
+    NSButton *test = [[NSButton alloc] initWithFrame:NSMakeRect(100, 200, 300, 400)];
+//    [test setWantsLayer:YES];
+    NSString *description = [MYSClass describe:test];
     NSLog(@"%@", description);
 }
 

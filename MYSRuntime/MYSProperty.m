@@ -16,6 +16,8 @@
 {
     self = [super init];
     if (self) {
+//        _property = malloc(sizeof(objc_property_t));
+//        memcpy(&_property, &property, sizeof(objc_property_t));
         _property                       = property;
         _propertyAttributesString       = [[NSString stringWithUTF8String:property_getAttributes(property)] copy];
         _name                           = [[NSString stringWithUTF8String:property_getName(property)] copy];
