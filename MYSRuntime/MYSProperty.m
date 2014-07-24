@@ -7,11 +7,12 @@
 //
 
 #import "MYSRuntime.h"
+//#import <objc/runtime.h>
 
 
 @implementation MYSProperty
 
-- (id)initWithObjCProperty:(objc_property_t)property
+- (instancetype)initWithObjCProperty:(objc_property_t)property
 {
     self = [super init];
     if (self) {
@@ -99,6 +100,12 @@
         }
     }
     return self;
+}
+
+- (instancetype)initWithClass:(Class)klass name:(NSString *)name
+{
+    objc_property_t property = class_getProperty(klass, [name UTF8String]);
+    return [self initWithObjCProperty:property];
 }
 
 @end

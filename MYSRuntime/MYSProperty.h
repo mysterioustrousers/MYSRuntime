@@ -43,6 +43,15 @@ typedef NS_ENUM(NSUInteger, MYSPropertyStorageType) {
  *
  *  @return An MYSProperty populated with values from `initWithObjCProperty:`.
  */
-- (id)initWithObjCProperty:(objc_property_t)property;
+- (instancetype)initWithObjCProperty:(objc_property_t)property;
+
+/**
+ * Create an MYSProperty from a class and property name.
+ *
+ * @param class The class the property is on.
+ * @param name  The name of the property.
+ * @return An MYSProperty for `class` with `name`.
+*/
+- (instancetype)initWithClass:(Class)klass name:(NSString *)name;
 
 @end
