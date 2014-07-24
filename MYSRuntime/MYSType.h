@@ -69,6 +69,11 @@ typedef NS_ENUM(NSUInteger, MYSTypeType) {
 @property (nonatomic, assign, readonly) MYSTypeType type;
 
 /**
+ *  If the type is `MYSTypeTypeObject` this will contain the class.
+ */
+@property (nonatomic, assign, readonly) Class typeClass;
+
+/**
  *  Returns the actual size in bytes of the type.
  */
 @property (nonatomic, assign, readonly) NSUInteger size;

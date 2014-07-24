@@ -17,6 +17,11 @@ static char pointerEncodingCharacter = '^';
 @end
 
 
+@interface MYSType ()
+@property (nonatomic, assign) Class typeClass;
+@end
+
+
 @implementation MYSType
 
 - (id)initWithEncodingString:(NSString *)encodingString
@@ -125,12 +130,18 @@ static char pointerEncodingCharacter = '^';
 
 - (void)parseEncodingString:(NSString *)encodingString
 {
-    if ([encodingString isEqualToString:@"@"]) {
+    // if it's an object
+    if ([encodingString hasPrefix:@"@"]) {
         _type           = '@';
         _pointerCount   = 0;
         _tag            = @"id";
+        if ([encodingString length] > 1) {
+            NSString *className = [encodingString substringWithRange:NSMakeRange(2, [encodingString length] - 3)];
+            self.typeClass = NSClassFromString(className);
+        }
         return;
     }
+
     // record and strip pointer encoding
     _pointerCount = 0;
     while ([encodingString length] > 0 && [encodingString characterAtIndex:0] == pointerEncodingCharacter) {
