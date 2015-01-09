@@ -135,7 +135,7 @@ static char pointerEncodingCharacter = '^';
         _type           = '@';
         _pointerCount   = 0;
         _tag            = @"id";
-        if ([encodingString length] > 1) {
+        if ([encodingString length] > 2) {
             NSString *className = [encodingString substringWithRange:NSMakeRange(2, [encodingString length] - 3)];
             self.typeClass = NSClassFromString(className);
         }
