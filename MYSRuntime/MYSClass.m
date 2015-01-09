@@ -47,6 +47,7 @@
         MYSProperty *property   = [[MYSProperty alloc] initWithObjCProperty:p];
         [properties addObject:property];
     }
+    free(props);
     return properties;
 }
 
