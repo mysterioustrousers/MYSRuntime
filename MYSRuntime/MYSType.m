@@ -247,7 +247,7 @@ static char pointerEncodingCharacter = '^';
         if (openBraces == 0 && [memberType length] > 0) {
             if (self.type != MYSTypeTypeArray) {
                 if ([memberType length] > 2) {
-                    unichar openCharacter = '}' ? '{' : '(';
+                    unichar openCharacter = '}';
                     NSString *wrappedType = [NSString stringWithFormat:@"%c%@%c", openCharacter, memberType, c];
                     MYSType *nestedType = [[MYSType alloc] initWithEncodingString:wrappedType];
                     MYSTypePrimitiveMember *member = [[MYSTypePrimitiveMember alloc] initWithName:pendingMemberName

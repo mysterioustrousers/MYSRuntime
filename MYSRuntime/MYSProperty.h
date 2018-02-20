@@ -39,8 +39,6 @@ typedef NS_ENUM(NSUInteger, MYSPropertyStorageType) {
 /**
  *  Once you create an MYSProperty with this designated initializer, it cannot be changed.
  *
- *  @param ivar  The primitive opaque type to create the property from.
- *
  *  @return An MYSProperty populated with values from `initWithObjCProperty:`.
  */
 - (instancetype)initWithObjCProperty:(objc_property_t)property;
@@ -48,7 +46,6 @@ typedef NS_ENUM(NSUInteger, MYSPropertyStorageType) {
 /**
  * Create an MYSProperty from a class and property name.
  *
- * @param class The class the property is on.
  * @param name  The name of the property.
  * @return An MYSProperty for `class` with `name`.
 */
